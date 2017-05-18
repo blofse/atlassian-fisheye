@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker - Atlassian Fisheye container
+Requires=docker-atlassian-fisheye-postgres.service
+After=docker-atlassian-fisheye-postgres.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a atlassian-fisheye
+ExecStop=/usr/bin/docker stop -t 2 atlassian-fisheye
+
+[Install]
+WantedBy=default.target
