@@ -1,4 +1,4 @@
-# atlassian-fisheye
+# atlassian-fisheye - A docker image containing version 4.4.1 based on alpine linux, with mysql / postgres support
 Restartable, persistent docker image for atlassian fisheye (+ crucible as the same installer is used)
 
 Any feedback let me know - its all welcome!
