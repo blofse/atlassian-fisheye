@@ -5,8 +5,8 @@ docker stop atlassian-fisheye-postgres
 docker stop atlassian-fisheye
 
 echo Copying and running service
-yes | cp docker-atlassian-fisheye-postgres.service /etc/systemd/system/.
-yes | cp docker-atlassian-fisheye.service /etc/systemd/system/.
+yes | cp optional/docker-atlassian-fisheye-postgres.service /etc/systemd/system/.
+yes | cp optional/docker-atlassian-fisheye.service /etc/systemd/system/.
 systemctl daemon-reload
 
 systemctl enable docker-atlassian-fisheye-postgres

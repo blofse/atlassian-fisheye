@@ -5,5 +5,23 @@ if [[ $# -eq 0 ]] ; then
     exit 0
 fi
 
-docker run --name atlassian-fisheye-postgres -e POSTGRES_USER=fisheye -e POSTGRES_PASSWORD="$1" -v FisheyePostgresData:/var/lib/postgresql/data -d postgres:9.5.6-alpine
-docker run -d --name atlassian-fisheye --link atlassian-fisheye-postgres:pgfisheye -p 8060:8060 -v FisheyeHomeVolume:/var/atlassian/application-data/fisheye atlassian-fisheye
+docker network create \
+  --driver bridge \
+  atlassian-fisheye-network
+
+docker run \
+  --name atlassian-fisheye-postgres \
+  -e POSTGRES_USER=fisheye \
+  -e POSTGRES_PASSWORD="$1" \
+  -v atlassian-fisheye-postgres-data:/var/lib/postgresql/data \
+  --net atlassian-fisheye-network \
+  -d \
+  postgres:9.5.6-alpine
+
+docker run \
+  --name atlassian-fisheye \
+  -p 8060:8060 \
+  -v atlassian-fisheye-home:/var/atlassian/application-data/fisheye \
+  --net atlassian-fisheye-network \
+  -d \
+  atlassian-fisheye
