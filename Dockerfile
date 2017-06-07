@@ -7,7 +7,7 @@ ENV FISHEYE_VERSION=4.4.1 \
     MYSQL_VERSION=5.1.38
 
 RUN set -x \
-    && apk add --no-cache libressl wget tar bash unzip \
+    && apk add --no-cache libressl wget tar bash unzip git \
     && mkdir -p "${FISHEYE_HOME}" \
     && mkdir -p "${FISHEYE_INSTALL}" \
     && wget -O "atlassian-fisheye-${FISHEYE_VERSION}.zip" --no-verbose "https://www.atlassian.com/software/fisheye/downloads/binary/fisheye-${FISHEYE_VERSION}.zip" \
