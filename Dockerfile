@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 
 # Configuration variables.
-ENV FISHEYE_VERSION=4.4.1 \
+ENV FISHEYE_VERSION=4.5.1 \
     FISHEYE_HOME=/var/atlassian/application-data/fisheye \
     FISHEYE_INSTALL=/opt/atlassian/fisheye \
     MYSQL_VERSION=5.1.38
