@@ -22,6 +22,7 @@ docker run \
   --name atlassian-fisheye \
   -p 8060:8060 \
   -v atlassian-fisheye-home:/var/atlassian/application-data/fisheye \
+  -v atlassian-fisheye-serverconf:/opt/atlassian/fisheye \
   --net atlassian-fisheye-network \
   -d \
   atlassian-fisheye
