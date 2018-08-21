@@ -22,12 +22,12 @@ docker stop atlassian-fisheye || true && docker rm atlassian-fisheye || true
 
 echo Removing volumes
 docker volume rm atlassian-fisheye-postgres-data || true
-docker volume rm atlassian-fisheye-home || true
+docker volume rm atlassian-fisheye-serverconf || true
 
 echo Removing networks
 docker network rm atlassian-fisheye-network || true
 
 echo Removing docker image - fisheye only
-# docker rmi atlassian-fisheye
+docker rmi atlassian-fisheye
 
 echo Done!
